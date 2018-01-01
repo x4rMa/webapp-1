@@ -27,6 +27,7 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 INSTALLED_APPS = [
     'language',
+    'yuan',
     'home',
 
     'wagtail.wagtailforms',
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'wagtail.wagtailadmin',
     'wagtail.wagtailcore',
 
+    'compressor',
     'modelcluster',
     'taggit',
 
@@ -126,7 +128,12 @@ LANGUAGES = (
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
 ]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', 'django_libsass.SassCompiler'),
+)
 
 STATICFILES_DIRS = [
     os.path.join(PROJECT_DIR, 'static'),
