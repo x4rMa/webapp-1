@@ -11,3 +11,6 @@ class LanguageRedirectionPage(Page):
         language = translation.get_language_from_request(request)
 
         return HttpResponseRedirect(self.url + language + '/')
+
+    parent_page_types = ['wagtailcore.Page']
+    subpage_types = []

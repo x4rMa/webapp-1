@@ -12,3 +12,6 @@ class HomePage(Page, TranslatablePageMixin):
         FieldPanel('body', classname="full"),
         MultiFieldPanel(TranslatablePageMixin.panels, 'Language links'),
     ]
+
+    parent_page_types = ['language.LanguageRedirectionPage']
+    subpage_types = []
