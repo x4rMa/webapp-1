@@ -19,7 +19,7 @@ def create_languageredirectionpage(apps, schema_editor):
 
     # Create a new languageredirectionpage
     languageredirectionpage = LanguageRedirectionPagePage.objects.create(
-        title="Language Redirection Page",
+        title='Language Redirection Page',
         draft_title="Language Redirection Page",
         slug='language-redirection-page',
         content_type=languageredirectionpage_content_type,

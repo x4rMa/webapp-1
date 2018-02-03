@@ -36,7 +36,10 @@ class TranslatablePageMixin(models.Model):
         if language == 'en':
             return self
         elif language == 'tr':
-            return type(self).objects.filter(turkish_link=self).first().specific
+            try:
+                return type(self).objects.filter(turkish_link=self).first().specific
+            except:
+                return None
 
 
     # We need a method to find a version of this page for each alternative language.

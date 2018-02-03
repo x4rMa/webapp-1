@@ -5,6 +5,7 @@ def create_homepage(apps, schema_editor):
     # Get models
     ContentType = apps.get_model('contenttypes.ContentType')
     HomePage = apps.get_model('home.HomePage')
+    LanguageRedirectionPage = apps.get_model('language.LanguageRedirectionPage')
 
     # Create content type for homepage model
     homepage_content_type, __ = ContentType.objects.get_or_create(
@@ -20,6 +21,7 @@ def create_homepage(apps, schema_editor):
         depth=3,
         numchild=0,
         url_path='/tr/',
+        show_in_menus=1,
     )
 
     # Create a new English homepage
@@ -32,13 +34,17 @@ def create_homepage(apps, schema_editor):
         depth=3,
         numchild=0,
         url_path='/en/',
+        show_in_menus=1,
     )
+
+    LanguageRedirectionPage.objects.filter(title='Language Redirection Page').update(numchild=2)
 
 
 def remove_homepage(apps, schema_editor):
     # Get models
     ContentType = apps.get_model('contenttypes.ContentType')
     HomePage = apps.get_model('home.HomePage')
+    LanguageRedirectionPage = apps.get_model('language.LanguageRedirectionPage')
 
     # Delete the default homepage
     # Page and Site objects CASCADE
@@ -46,6 +52,8 @@ def remove_homepage(apps, schema_editor):
 
     # Delete content type for homepage model
     ContentType.objects.filter(model='homepage', app_label='home').delete()
+
+    LanguageRedirectionPage.objects.filter(title='Language Redirection Page').update(numchild=0)
 
 
 class Migration(migrations.Migration):

@@ -1,13 +1,10 @@
 {% load wagtailcore_tags %}
 
-{% if page_language == 'en' %}
-  <li class="nav-item">
-    <a class="nav-link" href="{{ language_url }}">English<span class="sr-only">(current)</span></a>
-  </li>
-{% endif %}
-
-{% if page_language == 'tr' %}
-  <li class="nav-item">
-    <a class="nav-link" href="{{ language_url }}">Türkçe<span class="sr-only">(current)</span></a>
-  </li>
+{% if language_url and language_translation %}
+<li class="nav-item">
+  <a class="nav-link" href="{{ language_url }}">
+    {{ language_translation }}
+    <span class="sr-only">(current)</span>
+  </a>
+</li>
 {% endif %}
