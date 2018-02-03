@@ -20,7 +20,7 @@ def create_homepage(apps, schema_editor):
         path='000100010001',
         depth=3,
         numchild=0,
-        url_path='/tr/',
+        url_path='/language-redirection-page/tr/',
         show_in_menus=1,
     )
 
@@ -33,11 +33,14 @@ def create_homepage(apps, schema_editor):
         path='000100010002',
         depth=3,
         numchild=0,
-        url_path='/en/',
+        url_path='/language-redirection-page/en/',
         show_in_menus=1,
     )
 
     LanguageRedirectionPage.objects.filter(title='Language Redirection Page').update(numchild=2)
+
+    HomePage.objects.filter(title='Home Page').update(language_link=homepage_tr)
+    HomePage.objects.filter(title='Ana Sayfa').update(language_link=homepage_en)
 
 
 def remove_homepage(apps, schema_editor):
