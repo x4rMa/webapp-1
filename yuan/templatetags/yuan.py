@@ -26,30 +26,24 @@ def top_menu(parent, calling_page=None):
 
 @register.inclusion_tag('yuan/tags/language_menu.html')
 def language_menu(calling_page=None):
-    page_language = calling_page.get_language()
-    if calling_page.english_page() and page_language != 'en':
-        language_url = calling_page.english_page().url
-        language_translation = 'English'
-    elif calling_page.turkish_page() and page_language != 'tr':
-        language_url = calling_page.turkish_page().url
-        language_translation = 'Turkish'
-    else:
-        language_url = None
-        language_translation = None
-
+    language_translation = dict([('en', 'English'), ('tr', 'Türkçe')])
+    language_code = None
+    language_url = None
+    if calling_page.language_page() is not None:
+        language_url = calling_page.language_page().url
+        language_code = calling_page.language_page().get_language()
     return {
         'language_url': language_url,
-        'language_translation': language_translation,
+        'language_translation': language_translation.get(language_code),
     }
 
 
 @register.inclusion_tag('yuan/tags/footer_text.html')
 def footer_text():
-    try:
-        return {
-            'footer_text': Content.objects.get(content_type__iexact="footer text").content_body,
-        }
-    except:
-        return {
-            'footer_text': '',
-        }
+    footer_text = None
+    if Content.objects.filter(content_type__iexact='footer text').first() is not None:
+        footer_text = Content.objects.filter(content_type__iexact='footer text').first().content_body
+
+    return {
+        'footer_text': footer_text,
+    }

@@ -26,8 +26,8 @@ def create_homepage(apps, schema_editor):
 
     # Create a new English homepage
     homepage_en = HomePage.objects.create(
-        title="Home",
-        draft_title="Home",
+        title="Home Page",
+        draft_title="Home Page",
         slug='en',
         content_type=homepage_content_type,
         path='000100010002',
