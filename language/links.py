@@ -18,6 +18,7 @@ class TranslatablePageMixin(models.Model):
 
     def language_page(self):
         language = self.get_language()
+
         return type(self).objects.filter(language_link=self).first()
 
 

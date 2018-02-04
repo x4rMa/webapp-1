@@ -1,6 +1,11 @@
-__pycache__
+__pycache__/
 __init__.py
+
 /static/
+/yuan/static/yuan/assets/css/bootstrap
+/yuan/static/yuan/assets/js/bootstrap.min.js
+/yuan/static/yuan/assets/js/jquery.slim.min.js
+/yuan/static/yuan/assets/js/popper.min.js
+
 db.sqlite3
-assets
 .gitignore
