@@ -1,5 +1,11 @@
 {% extends "yuan/base.html" %}
 
 {% block main %}
-  {% include "home/includes/carousel.html" %}
+  {# block.super #}
+  <main>
+    {% include "yuan/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+    {% if self.body %}
+      {% include "yuan/includes/carousel.html" with content=self.body %}
+    {% endif %}
+  </main>
 {% endblock main %}

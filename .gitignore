@@ -2,6 +2,7 @@ __pycache__/
 __init__.py
 
 /static/
+/media/
 /yuan/static/yuan/assets/css/bootstrap
 /yuan/static/yuan/assets/js/bootstrap.min.js
 /yuan/static/yuan/assets/js/jquery.slim.min.js
