@@ -1,49 +1,11 @@
 from django.db import models
 
-from wagtail.wagtailadmin.edit_handlers import (
-    FieldPanel, MultiFieldPanel, PageChooserPanel
-    )
-from wagtail.wagtaildocs.edit_handlers import DocumentChooserPanel
+from wagtail.wagtailadmin.edit_handlers import FieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 from wagtail.wagtailsnippets.models import register_snippet
 
 
-class LinkFields(models.Model):
-    link_external = models.URLField("External link", blank=True)
-    link_page = models.ForeignKey(
-        'wagtailcore.Page',
-        null=True,
-        blank=True,
-        related_name='+'
-    )
-    link_document = models.ForeignKey(
-        'wagtaildocs.Document',
-        null=True,
-        blank=True,
-        related_name='+'
-    )
-
-    @property
-    def link(self):
-        if self.link_page:
-            return self.link_page.url
-        elif self.link_document:
-            return self.link_document.url
-        else:
-            return self.link_external
-
-    panels = [
-        FieldPanel('link_external'),
-        PageChooserPanel('link_page'),
-        DocumentChooserPanel('link_document'),
-    ]
-
-    api_fields = ['link_external', 'link_page', 'link_document']
-
-    class Meta:
-        abstract = True
-
-class CarouselItem(LinkFields):
+class CarouselItem(models.Model):
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -51,18 +13,18 @@ class CarouselItem(LinkFields):
         on_delete=models.SET_NULL,
         related_name='+'
     )
-    embed_url = models.URLField("Embed URL", blank=True)
-    caption = models.CharField(max_length=255, blank=True)
+    caption_head = models.CharField(max_length=255, blank=True)
+    caption_paragraph = models.CharField(max_length=255, blank=True)
 
     panels = [
         ImageChooserPanel('image'),
-        FieldPanel('embed_url'),
-        FieldPanel('caption'),
-        MultiFieldPanel(LinkFields.panels, "Link"),
+        FieldPanel('caption_head'),
+        FieldPanel('caption_paragraph'),
     ]
 
     class Meta:
         abstract = True
+
 
 @register_snippet
 class Content(models.Model):
@@ -76,3 +38,6 @@ class Content(models.Model):
 
     def __str__(self):
         return self.content_type
+
+    class Meta:
+        verbose_name_plural = 'Content'
