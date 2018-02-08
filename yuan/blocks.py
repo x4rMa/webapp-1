@@ -22,7 +22,7 @@ class HeadingBlock(StructBlock):
         ('h2', 'H2'),
         ('h3', 'H3'),
         ('h4', 'H4')
-    ], blank=True, required=False)
+    ], blank=True, required=True)
 
     class Meta:
         icon = "title"

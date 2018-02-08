@@ -6,7 +6,7 @@ def create_content(apps, schema_editor):
 
     content = Content.objects.create(
         content_type='footer text',
-        content_body='Text',
+        content_body='© 2017-2018 Company, Inc.',
     )
 
 

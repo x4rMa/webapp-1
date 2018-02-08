@@ -1,6 +1,13 @@
 {% extends "yuan/base.html" %}
 
+{% load wagtailcore_tags %}
+
 {% block main %}
+  <main>
     {# block.super #}
-    {% include "yuan/includes/carousel.html" with carousel_items=self.carousel_items.all only %}
+    {% include "yuan/includes/carousel.html" with carousel_items=page.carousel_items.all only %}
+    <div class="container">
+      {% include_block page.body %}
+    </div>
+  </main>
 {% endblock main %}
