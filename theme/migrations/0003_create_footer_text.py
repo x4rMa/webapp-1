@@ -2,7 +2,7 @@ from django.db import migrations
 
 
 def create_content(apps, schema_editor):
-    Content = apps.get_model('yuan.content')
+    Content = apps.get_model('theme.content')
 
     content = Content.objects.create(
         content_type='footer text',
@@ -11,14 +11,14 @@ def create_content(apps, schema_editor):
 
 
 def remove_content(apps, schema_editor):
-    Content = apps.get_model('yuan.content')
+    Content = apps.get_model('theme.content')
 
     Content.objects.filter(content_type='footer_text').delete()
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yuan', '0002_create_initial_superuser'),
+        ('theme', '0002_create_initial_superuser'),
     ]
 
     operations = [

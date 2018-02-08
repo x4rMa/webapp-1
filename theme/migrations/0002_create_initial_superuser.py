@@ -22,7 +22,7 @@ def remove_superuser(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('yuan', '0001_initial'),
+        ('theme', '0001_initial'),
     ]
 
     operations = [

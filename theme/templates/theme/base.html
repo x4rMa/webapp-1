@@ -4,29 +4,29 @@
 <html lang="{{ self.get_language }}">
   <head>
     {% block head %}
-      {% include "yuan/includes/head.html" %}
+      {% include "theme/includes/head.html" %}
     {% endblock head %}
 
     {% block css %}
-      {% include "yuan/includes/css.html" %}
+      {% include "theme/includes/css.html" %}
     {% endblock css %}
   </head>
 
   <body class="{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}">
     {% block nav %}
-      {% include "yuan/includes/nav.html" %}
+      {% include "theme/includes/nav.html" %}
     {% endblock nav %}
 
     {% block main %}
-      {% include "yuan/includes/main.html" %}
+      {% include "theme/includes/main.html" %}
     {% endblock main %}
 
     {% block footer %}
-      {% include "yuan/includes/footer.html" %}
+      {% include "theme/includes/footer.html" %}
     {% endblock footer %}
 
     {% block js %}
-      {% include "yuan/includes/js.html" %}
+      {% include "theme/includes/js.html" %}
     {% endblock js %}
   </body>
 </html>

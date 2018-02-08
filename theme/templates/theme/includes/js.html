@@ -1,0 +1,8 @@
+{% load compress static %}
+
+{# Global stylesheets #}
+{% compress js %}
+  <script src="{% static 'theme/assets/js/jquery.slim.min.js' %}"></script>
+  <script src="{% static 'theme/assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'theme/assets/js/bootstrap.min.js' %}"></script>
+{% endcompress %}

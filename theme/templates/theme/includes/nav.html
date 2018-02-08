@@ -1,11 +1,11 @@
-{% load static wagtailcore_tags yuan %}
+{% load static wagtailcore_tags theme %}
 
 {% get_language_root as language_root %}
 
 <header>
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
     <a class="navbar-brand" href="{% pageurl language_root  %}">
-      <img src="{% static 'yuan/assets/img/logo.svg' %}" width="30" height="30" alt="">
+      <img src="{% static 'theme/assets/img/logo.svg' %}" width="30" height="30" alt="">
       Yuan
     </a>
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">

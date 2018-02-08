@@ -3,11 +3,11 @@ __init__.py
 
 /static/
 /media/
-/yuan/static/yuan/assets/css/bootstrap
-/yuan/static/yuan/assets/js/bootstrap.min.js
-/yuan/static/yuan/assets/js/jquery.slim.min.js
-/yuan/static/yuan/assets/js/popper.min.js
-/yuan/static/yuan/assets/js/holder.min.js
+/theme/static/theme/assets/css/bootstrap
+/theme/static/theme/assets/js/bootstrap.min.js
+/theme/static/theme/assets/js/jquery.slim.min.js
+/theme/static/theme/assets/js/popper.min.js
+/theme/static/theme/assets/js/holder.min.js
 
 db.sqlite3
 .gitignore

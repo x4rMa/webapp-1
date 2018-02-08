@@ -1,6 +1,6 @@
 from django.db import models
-from wagtail.wagtailcore.models import Page
-from wagtail.wagtailadmin.edit_handlers import MultiFieldPanel, PageChooserPanel
+from wagtail.core.models import Page
+from wagtail.admin.edit_handlers import MultiFieldPanel, PageChooserPanel
 
 
 class TranslatablePageMixin(models.Model):

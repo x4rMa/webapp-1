@@ -1,8 +1,8 @@
 from django.db import models
 
-from wagtail.wagtailadmin.edit_handlers import FieldPanel
-from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
-from wagtail.wagtailsnippets.models import register_snippet
+from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.snippets.models import register_snippet
 
 
 class CarouselItem(models.Model):
