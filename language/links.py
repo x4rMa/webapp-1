@@ -1,14 +1,10 @@
 from django.db import models
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import MultiFieldPanel, PageChooserPanel
+from wagtail.admin.edit_handlers import PageChooserPanel
 
 
 class TranslatablePageMixin(models.Model):
     language_link = models.ForeignKey(Page, null=True, on_delete=models.SET_NULL, blank=True, related_name='+')
-
-    panels = [
-        PageChooserPanel('language_link'),
-    ]
 
     def get_language(self):
         language_homepage = self.get_ancestors(inclusive=True).get(depth=3)

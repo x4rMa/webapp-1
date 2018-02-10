@@ -3,7 +3,7 @@ from django.db import models
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import (
-    InlinePanel, MultiFieldPanel, StreamFieldPanel
+    InlinePanel, PageChooserPanel, StreamFieldPanel
 )
 
 from modelcluster.fields import ParentalKey
@@ -11,7 +11,6 @@ from modelcluster.fields import ParentalKey
 from language.links import TranslatablePageMixin
 
 from theme.models import CarouselItem
-
 from theme.blocks import BaseStreamBlock
 
 
@@ -27,10 +26,10 @@ class HomePage(Page, TranslatablePageMixin):
     )
 
     content_panels = Page.content_panels + [
-        MultiFieldPanel(TranslatablePageMixin.panels, 'Language links'),
+        PageChooserPanel('language_link'),
         StreamFieldPanel('body'),
         InlinePanel('carousel_items', label="Carousel items"),
     ]
 
     parent_page_types = ['language.LanguageRedirectionPage']
-    subpage_types = []
+    subpage_types = ['blog.BlogIndexPage']
