@@ -12,7 +12,7 @@ from language.links import TranslatablePageMixin
 
 from theme.models import CarouselItem
 
-from theme.blocks import BaseStreamBlock
+from .blocks import BaseStreamBlock
 
 
 class HomePageCarouselItem(Orderable, CarouselItem):
