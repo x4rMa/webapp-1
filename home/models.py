@@ -12,11 +12,11 @@ from language.links import TranslatablePageMixin
 
 from theme.models import CarouselItem
 
-from .blocks import BaseStreamBlock
+from theme.blocks import BaseStreamBlock
 
 
 class HomePageCarouselItem(Orderable, CarouselItem):
-    carousel = ParentalKey(
+    page = ParentalKey(
         'HomePage', on_delete=models.CASCADE,related_name='carousel_items'
         )
 
